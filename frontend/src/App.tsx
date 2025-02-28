@@ -17,17 +17,11 @@ function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <h1 className="text-3xl font-bold underline">Demyst Coding Assignment</h1>
       <div className="card">
         {report && <BalanceSheetTable report={report} />}
         {!report && <div>Loading...</div>}
       </div>
-      <p className="read-the-docs">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam numquam
-        aut ratione minus, molestias illo error maxime architecto est. Saepe
-        illum sint, possimus nostrum consectetur fuga incidunt alias modi
-        minima!
-      </p>
     </>
   );
 }

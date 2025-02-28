@@ -1,7 +1,7 @@
 TODO:
 
-init git and upload
-setup docker containers
-add tests for front end
-add test for backend
-Remove hello world and Lorem ipsum
+* Clean up balance sheet table
+* Setup docker containers
+* Add tests for front end
+* Add test for backend
+* Write readme(s).
