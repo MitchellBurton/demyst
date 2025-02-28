@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { BalanceSheetTable, Report } from "./BalanceSheetTable";
+import { BalanceSheetTable } from "./components/BalanceSheetTable";
+import { Report } from "./types/balanceSheetTypes";
 
 function App() {
   const [report, setReport] = useState<Report | undefined>();
@@ -18,10 +19,8 @@ function App() {
   return (
     <>
       <h1 className="text-3xl font-bold underline">Demyst Coding Assignment</h1>
-      <div className="card">
-        {report && <BalanceSheetTable report={report} />}
-        {!report && <div>Loading...</div>}
-      </div>
+      {report && <BalanceSheetTable report={report} />}
+      {!report && <div>Loading...</div>}
     </>
   );
 }
