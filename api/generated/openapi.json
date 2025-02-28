@@ -1,0 +1,275 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Cell": {
+				"properties": {
+					"Value": {
+						"type": "string"
+					},
+					"Attributes": {
+						"items": {
+							"properties": {
+								"Value": {
+									"type": "string"
+								},
+								"Id": {
+									"type": "string"
+								}
+							},
+							"required": [
+								"Value"
+							],
+							"type": "object"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"Value",
+					"Attributes"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Row": {
+				"properties": {
+					"RowType": {
+						"type": "string",
+						"enum": [
+							"Header",
+							"Row",
+							"SummaryRow",
+							"Section"
+						]
+					},
+					"Title": {
+						"type": "string"
+					},
+					"Cells": {
+						"items": {
+							"$ref": "#/components/schemas/Cell"
+						},
+						"type": "array"
+					},
+					"Rows": {
+						"items": {
+							"$ref": "#/components/schemas/Row"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"RowType",
+					"Title",
+					"Cells"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"BalanceSheetReport": {
+				"properties": {
+					"ReportID": {
+						"type": "string"
+					},
+					"ReportName": {
+						"type": "string"
+					},
+					"ReportType": {
+						"type": "string",
+						"enum": [
+							"BalanceSheet"
+						],
+						"nullable": false
+					},
+					"ReportTitles": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"ReportDate": {
+						"type": "string"
+					},
+					"UpdatedDateUTC": {
+						"type": "string"
+					},
+					"Rows": {
+						"items": {
+							"$ref": "#/components/schemas/Row"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"ReportID",
+					"ReportName",
+					"ReportType",
+					"ReportTitles",
+					"ReportDate",
+					"UpdatedDateUTC",
+					"Rows"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"BalanceSheetReportQueryString": {
+				"properties": {
+					"date": {
+						"type": "string"
+					},
+					"periods": {
+						"type": "string"
+					},
+					"timeframe": {
+						"type": "string"
+					},
+					"trackingOptionID1": {
+						"type": "string"
+					},
+					"trackingOptionID2": {
+						"type": "string"
+					},
+					"standardLayout": {
+						"type": "string"
+					},
+					"paymentsOnly": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "show-me-the-money-backend",
+		"version": "0.0.1",
+		"contact": {}
+	},
+	"paths": {
+		"/balanceSheetReport": {
+			"get": {
+				"operationId": "GetBalanceSheetReport",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BalanceSheetReport"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"reason": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"reason"
+									],
+									"type": "object"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"reason": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"reason"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "date",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "periods",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "timeframe",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "trackingOptionID1",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "trackingOptionID2",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "standardLayout",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"in": "query",
+						"name": "paymentsOnly",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

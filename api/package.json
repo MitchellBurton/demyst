@@ -1,0 +1,39 @@
+{
+	"name": "show-me-the-money-backend",
+	"version": "0.0.1",
+	"scripts": {
+		"build": "tsc",
+		"build:routes": "tsoa routes",
+		"build:docs": "tsoa spec",
+		"dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+		"start": "npm run build:routes && DEBUG=express:* ts-node src/app.local.ts",
+		"watch": "tsc -w",
+		"test": "vitest",
+		"check": "biome ci",
+		"check:changed": "biome ci --changed",
+		"check:fix": "biome check --write",
+		"cdk": "cdk",
+		"deploy": "npm run build:routes && cdk deploy --all --require-approval=never"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/cors": "^2.8.17",
+		"@types/express": "^5.0.0",
+		"@types/node": "22.7.9",
+		"@types/swagger-ui-express": "^4.1.7",
+		"concurrently": "^9.1.0",
+		"constructs": "^10.0.0",
+		"esbuild": "^0.24.0",
+		"nodemon": "^3.1.7",
+		"swagger-ui-express": "^5.0.1",
+		"ts-node": "^10.9.2",
+		"typescript": "~5.6.3",
+		"vitest": "^2.1.8"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^5.0.1",
+		"source-map-support": "^0.5.21",
+		"tsoa": "^6.5.1"
+	}
+}
