@@ -1,7 +1,6 @@
 TODO:
 
 * Add tests for front end.
-* Clean up balance sheet table.
 
 * Add test for backend.
 
