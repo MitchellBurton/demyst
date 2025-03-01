@@ -1,5 +1,5 @@
 {
-	"name": "show-me-the-money-backend",
+	"name": "demystdata-api",
 	"version": "0.0.1",
 	"scripts": {
 		"build": "npm run build:routes && npm run build:docs && npm run build:tsc",

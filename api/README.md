@@ -1,2 +1,2 @@
-# show-me-the-money-backend
-The service that backs the balance sheet report
+# demystdata-api
+The service that backs the balance sheet report.
