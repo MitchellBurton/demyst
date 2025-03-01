@@ -49,3 +49,6 @@ npm run dev
 cd frontend
 npm run dev
 ```
+
+## Tests
+Tests can be run in either the frontend or backend with `npm test`.
