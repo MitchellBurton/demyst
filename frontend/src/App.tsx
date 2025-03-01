@@ -3,8 +3,6 @@ import { BalanceSheetReport } from "../../api/src/types/ballanceSheetReport";
 import { useQuery } from "@tanstack/react-query";
 
 function App() {
-  // const [report, setReport] = useState<Report | undefined>();
-
   const { isPending, error, data } = useQuery({
     queryKey: ["balanceSheetReport"],
     queryFn: () =>
@@ -14,8 +12,6 @@ function App() {
           : Promise.reject({ message: res.statusText })
       ),
   });
-
-  console.log({ isPending, error, data });
 
   return (
     <>
