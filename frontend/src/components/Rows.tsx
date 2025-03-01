@@ -3,7 +3,7 @@ import { Row } from "../types/balanceSheetTypes";
 
 export const HeaderRow = ({ row, index }: { row: Row; index: number }) => (
   <tr key={index} className="bg-gray-100 text-left">
-    {row.Cells.map((cell, cellIndex) => (
+    {row.Cells?.map((cell, cellIndex) => (
       <th key={cellIndex} className="p-2 border border-gray-300">
         {cell.Value}
       </th>
@@ -112,7 +112,7 @@ const BasicRow = ({ row, index }: { row: Row; index: number }) => (
     key={index}
     className={row.RowType === "SummaryRow" ? "bg-gray-100 font-semibold" : ""}
   >
-    {row.Cells.map((cell, cellIndex) => (
+    {row.Cells?.map((cell, cellIndex) => (
       <td key={cellIndex} className="p-2 border border-gray-300 text-right">
         {cellIndex === 0 ? (
           <span className="text-left block">{cell.Value}</span>

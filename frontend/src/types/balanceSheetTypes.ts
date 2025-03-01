@@ -10,7 +10,7 @@ export interface Report {
 
 export interface Cell {
   Value: string;
-  Attributes: {
+  Attributes?: {
     Id?: string;
     Value: string;
   }[];
@@ -19,6 +19,6 @@ export interface Cell {
 export interface Row {
   RowType: "Header" | "Row" | "SummaryRow" | "Section";
   Title: string;
-  Cells: Cell[];
+  Cells?: Cell[];
   Rows?: Row[];
 }
