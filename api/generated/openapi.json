@@ -147,7 +147,7 @@
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "show-me-the-money-backend",
+		"title": "demystdata-api",
 		"version": "0.0.1",
 		"contact": {}
 	},
