@@ -10,7 +10,7 @@ export interface BalanceSheetReport {
   ReportTitles: string[];
 
   ReportDate: string;
-  UpdatedDateUTC: string; //"\/Date(1519358515899)\/",
+  UpdatedDateUTC: string;
   Rows: Row[];
 }
 

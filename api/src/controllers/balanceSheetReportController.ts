@@ -38,26 +38,31 @@ export class BalanceSheetReportController extends Controller {
   ): Promise<BalanceSheetReport> {
     const reportApiBaseUrl =
       "http://localhost:3000/api.xro/2.0/Reports/BalanceSheet";
+
     // Get all the query parameters
     if (queries) {
       const params = new URLSearchParams(queries as Record<string, string>);
       const url = `${reportApiBaseUrl}?${params.toString()}`;
-      console.log(url);
     }
+
+    // Fetch the report from Xero
     const xeroResponse = await fetch(reportApiBaseUrl);
     const xeroBalanceSheetReportResponse =
       (await xeroResponse.json()) as XeroBalanceSheetReportResponse;
 
-    if (xeroBalanceSheetReportResponse.Reports.length === 0) {
+    // Basic error handling
+    if (
+      xeroBalanceSheetReportResponse.Reports.length === 0 ||
+      !xeroBalanceSheetReportResponse.Reports[0]
+    ) {
       return notFoundResponse(404, { reason: "Report not found" });
     }
-    if (xeroBalanceSheetReportResponse.Reports.length < 1) {
-      return notFoundResponse(404, { reason: "More than one report found" });
+    if (xeroBalanceSheetReportResponse.Reports.length > 1) {
+      return badRequest(400, { reason: "More than one report found" });
     }
 
     const report: BalanceSheetReport =
       xeroBalanceSheetReportResponse.Reports[0];
-    console.log(report);
     return report;
   }
 }
