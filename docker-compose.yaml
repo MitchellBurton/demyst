@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - "9000:9000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - xero-api
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3001:80"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+  xero-api:
+    image: jaypeng2015/show-me-the-money
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

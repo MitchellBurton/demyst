@@ -1,12 +1,14 @@
 TODO:
 
-* Add tests for front end.
-
-* Add test for backend.
-
-* Share types between front and back ends.
-* Add error handling to front and back ends.
-
 * Setup docker containers.
 
 * Write readme(s).
+
+## Docker Setup
+
+To run the application using Docker, follow these steps:
+
+1. Build and start the containers:
+   ```sh
+   docker-compose up --build
+   ```

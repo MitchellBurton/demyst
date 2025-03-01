@@ -39,7 +39,7 @@ export class BalanceSheetReportController extends Controller {
     @Queries() queries?: BalanceSheetReportQueryString
   ): Promise<BalanceSheetReport> {
     const reportApiBaseUrl =
-      "http://localhost:3000/api.xro/2.0/Reports/BalanceSheet";
+      "http://xero-api:3000/api.xro/2.0/Reports/BalanceSheet";
 
     // Get all the query parameters
     if (queries) {
