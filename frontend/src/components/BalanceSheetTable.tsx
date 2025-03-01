@@ -1,8 +1,8 @@
 import { HeaderRow, SectionRow } from "./Rows";
-import { Report } from "../types/balanceSheetTypes";
+import { BalanceSheetReport } from "../../../api/src/types/ballanceSheetReport";
 
 interface BalanceSheetTableProps {
-  report: Report;
+  report: BalanceSheetReport;
 }
 
 export const BalanceSheetTable = ({ report }: BalanceSheetTableProps) => {

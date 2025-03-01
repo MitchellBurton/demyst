@@ -11,10 +11,7 @@ import {
 } from "tsoa";
 
 import { authorizerMiddleware } from "../lib/middleware";
-import {
-  BalanceSheetReport,
-  XeroBalanceSheetReportResponse,
-} from "../types/xeroBallanceSheetReport";
+import { BalanceSheetReport } from "../types/ballanceSheetReport";
 
 interface BalanceSheetReportQueryString {
   date?: string;
@@ -24,6 +21,11 @@ interface BalanceSheetReportQueryString {
   trackingOptionID2?: string;
   standardLayout?: string;
   paymentsOnly?: string;
+}
+
+interface XeroBalanceSheetReportResponse {
+  Status: string;
+  Reports: BalanceSheetReport[];
 }
 
 @Route("balanceSheetReport")

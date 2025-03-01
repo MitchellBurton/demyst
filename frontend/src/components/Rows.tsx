@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Row } from "../types/balanceSheetTypes";
+import { Row } from "../../../api/src/types/ballanceSheetReport";
 
 export const HeaderRow = ({ row, index }: { row: Row; index: number }) => (
   <tr key={index} className="bg-gray-100 text-left">

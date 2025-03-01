@@ -31,8 +31,7 @@
 					}
 				},
 				"required": [
-					"Value",
-					"Attributes"
+					"Value"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -66,8 +65,7 @@
 				},
 				"required": [
 					"RowType",
-					"Title",
-					"Cells"
+					"Title"
 				],
 				"type": "object",
 				"additionalProperties": false

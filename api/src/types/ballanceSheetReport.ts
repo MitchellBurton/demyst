@@ -1,8 +1,3 @@
-export interface XeroBalanceSheetReportResponse {
-  Status: string;
-  Reports: BalanceSheetReport[];
-}
-
 export interface BalanceSheetReport {
   ReportID: string;
   ReportName: string;
@@ -17,14 +12,13 @@ export interface BalanceSheetReport {
 export interface Row {
   RowType: "Header" | "Row" | "SummaryRow" | "Section";
   Title: string;
-  Cells: Cell[];
+  Cells?: Cell[];
   Rows?: Row[];
 }
 
 export interface Cell {
   Value: string;
-
-  Attributes: {
+  Attributes?: {
     Id?: string;
     Value: string;
   }[];

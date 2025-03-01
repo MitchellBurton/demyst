@@ -16,7 +16,7 @@ const models: TsoaRoute.Models = {
         "dataType": "refObject",
         "properties": {
             "Value": {"dataType":"string","required":true},
-            "Attributes": {"dataType":"array","array":{"dataType":"nestedObjectLiteral","nestedProperties":{"Value":{"dataType":"string","required":true},"Id":{"dataType":"string"}}},"required":true},
+            "Attributes": {"dataType":"array","array":{"dataType":"nestedObjectLiteral","nestedProperties":{"Value":{"dataType":"string","required":true},"Id":{"dataType":"string"}}}},
         },
         "additionalProperties": false,
     },
@@ -26,7 +26,7 @@ const models: TsoaRoute.Models = {
         "properties": {
             "RowType": {"dataType":"union","subSchemas":[{"dataType":"enum","enums":["Header"]},{"dataType":"enum","enums":["Row"]},{"dataType":"enum","enums":["SummaryRow"]},{"dataType":"enum","enums":["Section"]}],"required":true},
             "Title": {"dataType":"string","required":true},
-            "Cells": {"dataType":"array","array":{"dataType":"refObject","ref":"Cell"},"required":true},
+            "Cells": {"dataType":"array","array":{"dataType":"refObject","ref":"Cell"}},
             "Rows": {"dataType":"array","array":{"dataType":"refObject","ref":"Row"}},
         },
         "additionalProperties": false,

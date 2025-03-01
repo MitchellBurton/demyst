@@ -1,5 +1,5 @@
 import { BalanceSheetTable } from "./components/BalanceSheetTable";
-import { Report } from "./types/balanceSheetTypes";
+import { BalanceSheetReport } from "../../api/src/types/ballanceSheetReport";
 import { useQuery } from "@tanstack/react-query";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     queryFn: () =>
       fetch("http://localhost:9000/balanceSheetReport").then((res) =>
         res.ok
-          ? (res.json() as Promise<Report>)
+          ? (res.json() as Promise<BalanceSheetReport>)
           : Promise.reject({ message: res.statusText })
       ),
   });
