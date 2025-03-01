@@ -38,17 +38,18 @@ export class BalanceSheetReportController extends Controller {
     @Res() badRequest: TsoaResponse<400, { reason: string }>,
     @Queries() queries?: BalanceSheetReportQueryString
   ): Promise<BalanceSheetReport> {
-    const reportApiBaseUrl =
-      "http://xero-api:3000/api.xro/2.0/Reports/BalanceSheet";
+    const baseUrl = process.env.XERO_API_BASE_URL || "http://localhost:3000";
+    const reportApiUrl = `${baseUrl}/api.xro/2.0/Reports/BalanceSheet`;
 
-    // Get all the query parameters
+    // Get all the query parameters and build the URL
+    let url = reportApiUrl;
     if (queries) {
       const params = new URLSearchParams(queries as Record<string, string>);
-      const url = `${reportApiBaseUrl}?${params.toString()}`;
+      url = `${reportApiUrl}?${params.toString()}`;
     }
 
     // Fetch the report from Xero
-    const xeroResponse = await fetch(reportApiBaseUrl);
+    const xeroResponse = await fetch(url);
     const xeroBalanceSheetReportResponse =
       (await xeroResponse.json()) as XeroBalanceSheetReportResponse;
 

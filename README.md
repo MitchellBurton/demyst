@@ -1,7 +1,5 @@
 TODO:
 
-* Setup docker containers.
-
 * Write readme(s).
 
 ## Docker Setup
