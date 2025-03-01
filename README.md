@@ -8,9 +8,9 @@ This project splits the frontend into its own React SPA. The backend is an API u
 
 The back end (in `/api`) uses the tsoa framework to create a OpenAPI file that can be found in `/api/generated/openapi.json`. It also serves a swaggerUI at the `/docs` url.
 
-Types are shared between the front and back end. This is done with a simple import across the file tree, see [./frontend/src//components/BalanceSheetTable.tsx](BalanceSheetTable.tsx) for an example.
+Types are shared between the front and back end. This is done with a simple import across the file tree, see [BalanceSheetTable.tsx](./frontend/src/components/BalanceSheetTable.tsx) for an example.
 
-In a real production app these types could be packaged up in an npm package, or a client could be generated from the OpenAPI file created be the back end.
+In a real production app these types could be packaged up in an npm package, or a client could be generated from the OpenAPI file created by the back end.
 
 ## Running the project
 
